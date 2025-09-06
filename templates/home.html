@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="../static/css/home.css">
+    <div class="different-task">
+        <div class="card">
+            <img src="../static/images/todo.jpeg" alt="todo image">
+            <div class="content">
+                <h1>Todo App</h1>
+                <p>Manage your tasks efficiently with our Todo App.</p>
+                <button>
+                    <a href="/todo">Todo</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/images/daily_expense.jpeg" alt="Daily Expense image">
+            <div class="content">
+                <h1>Daily Expense Tracker</h1>
+                <p>Track your daily expenses with ease.</p>
+                <button>
+                    <a href="/expense">Expense Tracker</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/images/timetable.jpeg" alt="Time Table image">
+            <div class="content">
+                <h1>Time Table</h1>
+                <p>Daily Time Table and task</p>
+                <button>
+                    <a href="/time_table">Time Table</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../static/images/report.jpeg" alt="Report image">
+            <div class="content">
+                <h1>Report</h1>
+                <p>Generate and manage reports easily.</p>
+                <button>
+                    <a href="/report">Go to Report</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

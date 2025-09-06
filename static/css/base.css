@@ -1,0 +1,18 @@
+*{
+    margin: 0%;
+}
+
+header{
+    background-color: aquamarine;
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.container{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+}
