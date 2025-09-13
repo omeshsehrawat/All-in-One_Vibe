@@ -1,0 +1,142 @@
+.todo_container{
+    width: 90%;
+    min-height: 86vh;
+    height: auto;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(121, 235, 106);
+}
+
+.todo_container h2{
+    font-size: 50px;
+    margin: 20px 0;
+}
+
+.add_button{
+    padding: 10px 20px;
+    background-color: rgb(20, 12, 243);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#taskList{
+    margin-top: 20px;
+    text-align: left;
+    font-size: 30px;
+}
+
+/* Fix table layout */
+.task_table {
+    table-layout: fixed; 
+    width: 98%; 
+    border-collapse: collapse;
+    font-size: 25px;
+    margin: 20px;
+    padding: 20px;
+    word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+}
+
+/* Fix each column width */
+.task_table th, .task_table td {
+    border: 1px solid #fefcfc;
+    padding: 10px;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+    white-space: wrap; 
+}
+
+/* Example fixed widths */
+.task_table th:nth-child(1), .task_table td:nth-child(1) { width: 40px; }   /* Sr. No */
+.task_table th:nth-child(2), .task_table td:nth-child(2) { width: 500px; }  /* Task */
+.task_table th:nth-child(3), .task_table td:nth-child(3) { width: 100px; }  /* Status */
+.task_table th:nth-child(4), .task_table td:nth-child(4) { width: 80px; }  /* Date */
+.task_table th:nth-child(5), .task_table td:nth-child(5) { width: 50px; }  /* Deadline */
+.task_table th:nth-child(6), .task_table td:nth-child(6) { width: 45px; }   /* Delete */
+
+
+/* Form Overlay */
+.task_form {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);  /* softer dark background */
+    backdrop-filter: blur(4px);   /* blur effect for modern look */
+    z-index: 9999;
+}
+
+/* Form Content Box */
+.form_content {
+    position: absolute;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 620px;
+    max-width: 90%;
+    height: auto;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: popup 0.3s ease-in-out;
+}
+
+/* Smooth pop-up animation */
+@keyframes popup {
+    from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Labels */
+.task_form label {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
+}
+
+/* Inputs */
+.task_form textarea,
+.task_form input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.task_form textarea:focus,
+.task_form input[type="date"]:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 6px rgba(79,70,229,0.4);
+}
+
+/* Submit Button */
+#submit_task {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    transition: 0.3s;
+}
+
+#submit_task:hover {
+    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+    transform: translateY(-2px);
+}

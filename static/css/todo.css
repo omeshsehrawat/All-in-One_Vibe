@@ -1,83 +1,255 @@
-.todo_container{
+/* ================== CONTAINER ================== */
+.todo_container {
     width: 90%;
     min-height: 86vh;
     height: auto;
     border-radius: 20px;
     text-align: center;
-    background-color: rgb(121, 235, 106);
+    background-color: #e6f9e6;   /* soft pastel green */
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-.todo_container h2{
+.todo_container h2 {
     font-size: 50px;
     margin: 20px 0;
+    color: #333;
 }
 
-.add_button{
-    padding: 10px 20px;
-    background-color: rgb(104, 200, 232);
+/* ================== SIDEBAR ================== */
+.sidebar {
+    height: 100%;
+    width: 0;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+}
+
+.sidebar a{
+    padding: 10px;
+    text-decoration: none;
+    font-size: 28px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.openbtn {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #333;
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    z-index: 1100; /* above sidebar */
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* ================== ADD BUTTON ================== */
+.add_button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    color: white;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 28px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.add_button:hover {
+    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+    transform: translateY(-2px);
+}
+
+/* ================== TABLE ================== */
+.task_table {
+    table-layout: fixed; 
+    width: 98%; 
+    border-collapse: collapse;
+    font-size: 20px;
+    margin: 20px auto;
+    word-wrap: break-word;
+    background: #fff;               
+    border-radius: 10px;            
+    overflow: hidden;               
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+}
+
+/* Header row */
+.task_table th {
+    background: #4f46e5;            
+    color: white;
+    padding: 12px;
+    text-align: center;
     font-weight: bold;
 }
 
-#taskList{
-    margin-top: 20px;
-    text-align: left;
-    font-size: 30px;
-}
-
-.task_table{
-    width: 90%;
-    font-size: 30px;
-    margin: 20px;
-    padding: 20px;
-}
-
-.task_table th{
-    border-bottom: 2px solid black;
+/* Data cells */
+.task_table td {
     padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
 }
 
+/* Alternate row colors */
+.task_table tr:nth-child(even) {
+    background-color: #f9fafb;      
+}
 
-/* Form Styles */
-.task_form{
+/* Hover effect */
+.task_table tr:hover {
+    background-color: #eef2ff;      
+}
+
+/* Column widths */
+.task_table th:nth-child(1), .task_table td:nth-child(1) { width: 60px; }   /* Sr. No */
+.task_table th:nth-child(2), .task_table td:nth-child(2) { width: 400px; }  /* Task */
+.task_table th:nth-child(3), .task_table td:nth-child(3) { width: 160px; }  /* Date */
+.task_table th:nth-child(4), .task_table td:nth-child(4) { width: 160px; }  /* Deadline */
+.task_table th:nth-child(5), .task_table td:nth-child(5) { width: 100px; }  /* Status */
+.task_table th:nth-child(6), .task_table td:nth-child(6) { width: 80px; }   /* Delete */
+
+/* ================== STATUS DROPDOWN ================== */
+.task_table select {
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.task_table select:hover {
+    border-color: #4f46e5;
+    box-shadow: 0 0 5px rgba(79,70,229,0.3);
+}
+
+/* ================== DELETE BUTTON ================== */
+.task_table button {
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.task_table button:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* ================== FORM OVERLAY ================== */
+.task_form {
     display: none;
     position: fixed;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.75); 
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px); 
     z-index: 9999;
 }
 
-.form_content{
+/* ================== FORM CONTENT ================== */
+.form_content {
     position: absolute;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 400px;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 620px;
+    max-width: 90%;
+    height: auto;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    animation: popup 0.3s ease-in-out;
 }
 
-.task_form label{
-    font-size: 25px;
+/* Smooth pop-up animation */
+@keyframes popup {
+    from { transform: translate(-50%, -50%) scale(0.9); opacity: 0; }
+    to   { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Labels */
+.task_form label {
+    font-size: 18px;
     font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
 }
 
-.submit_button, .close_button{
-    padding: 10px 20px;
-    background-color: rgb(104, 200, 232);
+/* Inputs */
+.task_form textarea,
+.task_form input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.task_form textarea:focus,
+.task_form input[type="date"]:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 6px rgba(79,70,229,0.4);
+}
+
+/* Submit Button */
+#submit_task {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    transition: 0.3s;
+}
+
+#submit_task:hover {
+    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+    transform: translateY(-2px);
+}
+
+
+
+.pending {
+    background-color: #fecaca;
+}
+
+.done {
+    background-color: #bbf7d0;
 }

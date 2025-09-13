@@ -2,6 +2,17 @@
 
 {% block content %}
     <link rel="stylesheet" href="../static/css/todo.css">
+
+    <button class="openbtn" onclick="toggleSidebar()">☰ Menu</button>
+
+    <div id="sidebar" class="sidebar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="#">Time Table</a>
+        <a href="#">Daily Expense</a>
+        <a href="#">Reports</a>
+    </div>
+
+
     <div class="todo_container">
         <h2>My Todo List</h2>
         <button class="add_button" onclick="taskFormPopup()">Add Task</button>
@@ -11,6 +22,8 @@
                 <tr>
                     <th>Sr. No.</th>
                     <th>Task</th>
+                    <th>Date</th>
+                    <th>Deadline</th>
                     <th>Delete</th>
                     <th>Status</th>
                 </tr>
@@ -24,80 +37,11 @@
         <div class="form_content">
             <label for="add_task">Enter the Task:</label><br>
             <textarea id="add_task" name="task" rows="3" cols="30" placeholder="Enter the task here...."></textarea><br>
+            <label for="myDate">Deadline:</label>
+            <input type="date" id="myDate" name="myDate"><br>
             <button id="submit_task" onclick="addTaskFunction(event)">Submit</button>
         </div>        
     </div>
 
-{% endblock %}
-
-{% block script %}
-    <script>
-        function taskFormPopup(){
-            document.getElementById("taskForm").style.display = "block";
-        }
-        function closeForm(){
-            document.getElementById("taskForm").style.display = "none";
-        }
-
-        function addTaskFunction(e) {
-            e.preventDefault();
-            const taskText = document.getElementById("add_task").value.trim();
-            if (taskText === "") return closeForm();
-
-            // create new row
-            const tr = document.createElement("tr");
-
-            const tdSerial = document.createElement("td");
-            const tdTask = document.createElement("td");
-            tdTask.textContent = taskText;
-            
-            const tdDelete = document.createElement("td");
-            const delBtn = document.createElement("button");
-            delBtn.textContent = "✖";
-            // delBtn.textContent = "❌";
-            delBtn.style.cursor = "pointer";
-
-            delBtn.onclick = function() {
-                tr.remove();
-                updateSerialNumbers();
-            };
-            tdDelete.appendChild(delBtn);
-
-            const tdStatus = document.createElement("td");
-            const select = document.createElement("select");
-
-            // create options manually
-            const optionPending = document.createElement("option");
-            optionPending.value = "pending";
-            optionPending.textContent = "Pending";
-
-            const optionDone = document.createElement("option");
-            optionDone.value = "done";
-            optionDone.textContent = "Done";
-
-            // append options to dropdown
-            select.appendChild(optionPending);
-            select.appendChild(optionDone);
-            tdStatus.appendChild(select);
-
-            tr.appendChild(tdSerial);
-            tr.appendChild(tdTask);
-            tr.appendChild(tdDelete);
-            tr.appendChild(tdStatus);
-            document.getElementById("taskTableBody").appendChild(tr);
-            updateSerialNumbers();
-
-            document.getElementById("add_task").value = "";
-            closeForm();
-        }
-
-        function updateSerialNumbers(){
-            const rows = document.querySelectorAll("#taskTableBody tr");
-            rows.forEach((row, index) => {
-                row.cells[0].textContent = index + 1;
-            });
-        }
-    </script>
-    
-
+    <script src="{{ url_for('static', filename='js/todo.js') }}"></script>
 {% endblock %}
