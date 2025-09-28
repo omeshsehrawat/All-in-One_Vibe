@@ -17,49 +17,6 @@
     color: #333;
 }
 
-/* ================== SIDEBAR ================== */
-.sidebar {
-    height: 100%;
-    width: 0;
-    left: 0px;
-    top: 0px;
-    position: fixed;
-    background-color: #333;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 60px;
-}
-
-.sidebar a{
-    padding: 10px;
-    text-decoration: none;
-    font-size: 28px;
-    color: white;
-    display: block;
-    transition: 0.2s;
-}
-
-.sidebar a:hover {
-    background-color: #575757;
-}
-
-.openbtn {
-    position: absolute;
-    top: 15px;
-    left: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    z-index: 1100; /* above sidebar */
-}
-
-.openbtn:hover {
-    background-color: #444;
-}
 
 /* ================== ADD BUTTON ================== */
 .add_button {
@@ -110,23 +67,14 @@
     text-align: center;
 }
 
-/* Alternate row colors */
-.task_table tr:nth-child(even) {
-    background-color: #f9fafb;      
-}
-
-/* Hover effect */
-.task_table tr:hover {
-    background-color: #eef2ff;      
-}
 
 /* Column widths */
-.task_table th:nth-child(1), .task_table td:nth-child(1) { width: 60px; }   /* Sr. No */
-.task_table th:nth-child(2), .task_table td:nth-child(2) { width: 400px; }  /* Task */
-.task_table th:nth-child(3), .task_table td:nth-child(3) { width: 160px; }  /* Date */
-.task_table th:nth-child(4), .task_table td:nth-child(4) { width: 160px; }  /* Deadline */
-.task_table th:nth-child(5), .task_table td:nth-child(5) { width: 100px; }  /* Status */
-.task_table th:nth-child(6), .task_table td:nth-child(6) { width: 80px; }   /* Delete */
+.task_table th:nth-child(1), .task_table td:nth-child(1) { width: 5%; }   /* Sr. No */
+.task_table th:nth-child(2), .task_table td:nth-child(2) { width: 40%; }  /* Task */
+.task_table th:nth-child(3), .task_table td:nth-child(3) { width: 15%; }  /* Date */
+.task_table th:nth-child(4), .task_table td:nth-child(4) { width: 15%; }  /* Deadline */
+.task_table th:nth-child(5), .task_table td:nth-child(5) { width: 15%; }  /* Status */
+.task_table th:nth-child(6), .task_table td:nth-child(6) { width: 10%; }   /* Delete */
 
 /* ================== STATUS DROPDOWN ================== */
 .task_table select {

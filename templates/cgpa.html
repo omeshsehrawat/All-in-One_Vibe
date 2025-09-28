@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="../static/css/cgpa.css">
+    {% include "toggle.html" %}
+
+    <div class="cgpa_container">
+        <h2>CGPA Calculator</h2>
+        <hr>
+        <div class="sgpaCalculator">
+            <label for="numberOfSubject" id="subjectEntry">Enter the Total number of subjects:</label>
+            <input type="number" id="numberOfSubject" placeholder="eg. 5" min="1"><br>
+            <button type="button" id="generateButton" onclick="generateInputs()">Generate</button>
+        </div>
+
+        <form id="sgpaForm">
+            <div id="subjectInputs"></div>
+            <button type="submit" id="calculateSGPA">Calculate SGPA</button>
+        </form>
+
+        <h3 id="result"></h3>
+        <div id="choose">
+            <p>Do you want to calculate CGPA?</p>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+        
+
+        <div class="cgpaCalculatorDiv" id="cgpaCalculator">
+            <label for="currentCGPA" id="cgpa">Enter the till date CGPA:</label>
+            <input type="number" id="currentCGPA" placeholder="eg. 8" min="1" max="10"><br>
+            <button type="button" id="generateCGPA" onclick="calculateCGPA()">Calculate CGPA</button>
+        </div>
+        <h3 id="cgparesult"></h3>
+        <br>
+        <button type="button" id="resetButton" onclick="location.reload()" >Reset</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/cgpa.js') }}"></script>
+{% endblock %}

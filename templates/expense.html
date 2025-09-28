@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% include "toggle.html" %}
+
+    <link rel="stylesheet" href="../static/css/expense.css">
+
+    <div class="expense_container">
+        <h2>My Expenditure List</h2>
+        
+        <button class="expense_button" onclick="expenseFormPopup()">Add Expenditure</button>
+        <table class="expenditure_table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Item</th>
+                    <th>Amount</th>
+                    <th>Entry Date</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTableBody"></tbody>
+        </table>
+    </div>
+
+    <!-- Pop-up form for adding expenditure -->
+     <div class="expense_form"  id="expenseForm">
+        <div class="expense_form_content">
+            <label for="add_item">Enter the Item:</label><br>
+            <textarea id="add_item" name="item" rows="3" cols="30" placeholder="Enter the item here...."></textarea><br>
+            <label for="add_amount">Enter the Amount:</label><br>
+            <input type="number" id="add_amount" name="amount" placeholder="Enter the amount here...."><br>
+            <label for="expense_date">Date:</label>
+            <input type="date" id="expense_date" name="expenseDate"><br>
+            <button id="submit_expense" onclick="addExpenseFunction(event)">Submit</button>
+        </div>
+     </div>
+
+     <script src="{{ url_for('static', filename='js/expense.js') }}"></script>
+{% endblock %}

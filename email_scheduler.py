@@ -1,6 +1,6 @@
 from flask_mail import Mail, Message
 from apscheduler.schedulers.background import BackgroundScheduler
-import database
+import todo_database
 
 mail = None
 flask_app = None
@@ -20,7 +20,7 @@ def send_new_task_email(task, deadline, recipients):
     )
 
 def send_pending_tasks_email(recipients):
-    tasks = database.get_all_tasks()
+    tasks = todo_database.get_all_tasks()
     pending = [f"- {t[1]} (Deadline: {t[3]})" for t in tasks if t[4] == "pending"]
 
     if pending:

@@ -50,7 +50,19 @@ img{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 30px;
+}
+
+.content button:hover{
+    background-color: blue;
+    color: white;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+.content a:hover{
+    text-decoration: none;
+    color: rgb(249, 249, 252);
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {

@@ -4,7 +4,7 @@ function addTaskFunction(e) {
     const deadline = document.getElementById("myDate").value;
     if (taskText === "") return closeForm();
 
-    fetch('/add', {
+    fetch('/add_task', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ task: taskText, myDate: deadline })
@@ -17,6 +17,7 @@ function addTaskFunction(e) {
     .catch(err => console.error("Error adding task:", err));
 
     document.getElementById("add_task").value = "";
+    document.getElementById("myDate").value = "";
     closeForm();
 }
 
@@ -29,13 +30,6 @@ function loadTasks() {
         tasks.forEach((row, index) => {
             const tr = document.createElement("tr");
 
-            // Adding background color based on status
-            // if (row[4] === "pending"){
-            //     tr.style.backgroundColor = '#fecaca';
-            // }
-            // else if (row[4] === "done"){
-            //     tr.style.backgroundColor = '#bbf7d0';
-            // }
             if (row[4] === "pending") {
                 tr.style.backgroundColor = "#fecaca";   // light red
             } else if (row[4] === "done") {
@@ -105,13 +99,6 @@ function closeForm() {
     document.getElementById("taskForm").style.display = "none";
 }
 
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.width === "250px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "250px";
-    }
-}
+
 
 window.onload = loadTasks;

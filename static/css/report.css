@@ -1,0 +1,130 @@
+/* =============== REPORT PAGE =============== */
+.report_container{
+    width: 90%;
+    min-height: 86vh;
+    height: auto;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #e6f9e6;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.report_container h2{
+    font-size: 50px;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* ================ FORM OVERLAY ================= */
+.report_selection{
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+}
+.report_container label{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.report_container .optionValue{
+    font-style: italic;
+}
+
+.options, .optionValue{
+    padding-right: 10px;
+}
+
+/* =================== INPUT FIELDS ================== */
+#startDate, #endDate{
+    font-size: 18px;
+    border: 2px solid #4f46e5;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+/* =================== GENERATE REPORT BUTTON ================== */
+#generateReport{
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #4f46e5, #6b5ce7);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+#generateReport:hover{
+    background: linear-gradient(135deg, #4338ca, #5b4ad1);
+    transform: translateY(-2px);
+}
+
+/* =================== REPORT TABLE ================== */
+#reportTable {
+    table-layout: fixed; 
+    width: 98%; 
+    border-collapse: collapse;
+    font-size: 20px;
+    margin: 20px auto;
+    word-wrap: break-word;
+    background: #fff;                          
+              
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+}
+
+/* Header row */
+#reportTable th {
+    background: #4f46e5;            
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Data cells */
+#reportTable td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+
+/* Column widths */
+#reportTable th:nth-child(1), .task_table td:nth-child(1) { width: 5%; }   /* Sr. No */
+#reportTable th:nth-child(2), .task_table td:nth-child(2) { width: 40%; }  /* Task */
+#reportTable th:nth-child(3), .task_table td:nth-child(3) { width: 15%; }  /* Date */
+#reportTable th:nth-child(4), .task_table td:nth-child(4) { width: 15%; }  /* Deadline */
+#reportTable th:nth-child(5), .task_table td:nth-child(5) { width: 15%; }  /* Status */
+
+#reportTable th:first-child {
+    border-top-left-radius: 10px;
+}
+
+#reportTable th:last-child {
+    border-top-right-radius: 10px;
+}
+
+#reportTable tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+#reportTable tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+#reportTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* light gray for even rows */
+}
+
+#reportTable tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* white for odd rows */
+}
+
+/* Optional: hover effect */
+#reportTable tbody tr:hover {
+    background-color: #d1e7ff; /* light blue on hover */
+}

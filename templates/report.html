@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="../static/css/report.css">
+    {% include "toggle.html" %}
+
+    <div class="report_container">
+        <h2>Report of Todo or Expenditure</h2>
+        <hr>
+        <form class="report_selection">
+            <label for="dateRange">Select the Range of Date:</label>
+            <input type="date" id="startDate"> to
+            <input type="date" id="endDate">
+            <br><br>
+            <label for="optionSelection" class="options">Select the Option:</label>
+            <input type="radio" id="todoOption" name="option" value="todo">
+            <label for="todoOption" class="optionValue">Todo Report</label>
+            <input type="radio" id="expenseOption" name="option" value="expense">
+            <label for="expenseOption" class="optionValue">Expense Report</label>
+            <br><br>
+            <button type="button" id="generateReport" onclick="generateReportFunction()">Generate Report</button>
+        </form>
+        <hr>
+        <div id="tableWrapper" style="border-radius:10px; overflow:hidden;"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/report.js') }}"></script>
+
+{% endblock %}

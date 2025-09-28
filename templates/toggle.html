@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="../static/css/toggle.css">
+
+<button class="openbtn" onclick="toggleSidebar()">☰ Menu</button>
+
+<div id="sidebar" class="sidebar">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('todo') }}">Todo</a>
+    <a href="{{ url_for('expense') }}">Expense Tracker</a>
+    <a href="{{ url_for('cgpa') }}">CGPA</a>
+    <a href="{{ url_for('report') }}">Reports</a>
+    
+</div>
+
+<script src="{{ url_for('static', filename='js/toggle.js') }}"></script>
